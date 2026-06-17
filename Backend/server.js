@@ -18,6 +18,7 @@ app.get("/api/users", (req, res) => {
     { id: 1, name: "Alice" },
     { id: 2, name: "John" },
     { id: 3, name: "Jane" },
+    { id: 4, name: "Bob" },
   ];
   res.status(200).json(users);
 });
