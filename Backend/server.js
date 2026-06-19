@@ -4,7 +4,7 @@ import morgan from "morgan";
 const app = express();
 
 app.use(morgan("dev"));
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "Hello World!" });
@@ -25,9 +25,9 @@ app.get("/api/users", (req, res) => {
 });
 
 // When we Build the frontend, we will serve the static files from the public folder.
-// app.get("*name", (req, res) => {
-//   res.sendFile("public/index.html", { root: __dirname });
-// });
+app.get("*name", (req, res) => {
+  res.sendFile("public/index.html", { root: __dirname });
+});
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
